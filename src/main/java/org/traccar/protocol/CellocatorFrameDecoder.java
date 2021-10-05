@@ -59,6 +59,10 @@ public class CellocatorFrameDecoder extends BaseFrameDecoder {
                 break;
         }
 
+        if(buf.getByte(buf.readerIndex()) == 'C' && buf.getByte(buf.readerIndex() + 1) == 'S' && buf.getByte(buf.readerIndex() + 2) == 'A'){
+            length = 5 + buf.getUnsignedShortLE(3);
+        }
+
         if (length > 0 && buf.readableBytes() >= length) {
             return buf.readRetainedSlice(length);
         }

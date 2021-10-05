@@ -148,6 +148,8 @@ public class H02ProtocolDecoder extends BaseProtocolDecoder {
             longitude = -longitude;
         }
 
+        longitude = longitude > 0 ? longitude * -1: longitude; // MARX
+
         position.setLatitude(latitude);
         position.setLongitude(longitude);
 
@@ -155,6 +157,20 @@ public class H02ProtocolDecoder extends BaseProtocolDecoder {
         position.setCourse((buf.readUnsignedByte() & 0x0f) * 100.0 + BcdUtil.readInteger(buf, 2));
 
         processStatus(position, buf.readUnsignedInt());
+
+        // MARX Agregar campos faltantes del protocolo
+        position.set(Position.KEY_USR_ALARM, buf.readUnsignedByte() );
+        position.set(Position.KEY_KEEP, buf.readUnsignedByte() );
+        position.set(Position.KEY_GSM, buf.readUnsignedByte() );
+        position.set(Position.KEY_GPS, buf.readUnsignedByte() );
+        position.set(Position.KEY_MILEAGE, buf.readUnsignedInt() );
+        position.set(Position.KEY_COUNTRY, buf.readUnsignedShort() );
+        position.set(Position.KEY_OPERATOR, buf.readUnsignedByte() );
+        int fixed = buf.readUnsignedByte();
+        position.set(Position.KEY_POWER, buf.readUnsignedByte() );
+        position.set(Position.KEY_HEIGHT, buf.readUnsignedShort() );
+        position.set(Position.KEY_BATTERY, buf.readUnsignedShort() / 10.0 );
+        position.set(Position.KEY_RECORD, buf.readUnsignedByte() );
 
         return position;
     }
@@ -357,10 +373,14 @@ public class H02ProtocolDecoder extends BaseProtocolDecoder {
         }
 
         if (parser.hasNext(2)) {
-            position.setLongitude(-parser.nextCoordinate());
+            double longitude = -parser.nextCoordinate();
+            longitude = longitude > 0 ? longitude * -1: longitude;
+            position.setLongitude(longitude);
         }
         if (parser.hasNext(2)) {
-            position.setLongitude(parser.nextCoordinate());
+            double longitude = parser.nextCoordinate();
+            longitude = longitude > 0 ? longitude * -1: longitude;
+            position.setLongitude(longitude);
         }
 
         position.setSpeed(parser.nextDouble(0));
@@ -548,7 +568,9 @@ public class H02ProtocolDecoder extends BaseProtocolDecoder {
 
             position.setValid(true);
             position.setLatitude(parser.nextCoordinate());
-            position.setLongitude(parser.nextCoordinate());
+            double longitude = parser.nextCoordinate();
+            longitude = longitude > 0 ? longitude * -1: longitude;
+            position.setLongitude(longitude);
             position.setSpeed(parser.nextDouble());
             position.setCourse(parser.nextDouble());
 

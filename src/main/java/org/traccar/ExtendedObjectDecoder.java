@@ -44,11 +44,30 @@ public abstract class ExtendedObjectDecoder extends ChannelInboundHandlerAdapter
         }
     }
 
+    private void saveOriginal(Object decodedMessage, Object originalMessage, String raw) {
+        if (Context.getConfig().getBoolean(Keys.DATABASE_SAVE_ORIGINAL) && decodedMessage instanceof Position) {
+            Position position = (Position) decodedMessage;
+            if (originalMessage instanceof ByteBuf) {
+                position.setOriginalMessage(raw);
+                //position.set(Position.KEY_ORIGINAL, raw);
+            } else if (originalMessage instanceof String) {
+                position.set(Position.KEY_ORIGINAL, DataConverter.printHex(
+                        ((String) originalMessage).getBytes(StandardCharsets.US_ASCII)));
+            }
+        }
+    }
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         NetworkMessage networkMessage = (NetworkMessage) msg;
         Object originalMessage = networkMessage.getMessage();
         try {
+            //MARX Obtener la trama antes de usarla en el buffer
+            String raw = "";
+            if (originalMessage instanceof ByteBuf) {
+                ByteBuf buf = (ByteBuf) originalMessage;
+                raw = ByteBufUtil.hexDump(buf);
+            }
             Object decodedMessage = decode(ctx.channel(), networkMessage.getRemoteAddress(), originalMessage);
             onMessageEvent(ctx.channel(), networkMessage.getRemoteAddress(), originalMessage, decodedMessage);
             if (decodedMessage == null) {
@@ -61,8 +80,11 @@ public abstract class ExtendedObjectDecoder extends ChannelInboundHandlerAdapter
                         ctx.fireChannelRead(o);
                     }
                 } else {
-                    saveOriginal(decodedMessage, originalMessage);
-                    ctx.fireChannelRead(decodedMessage);
+                    saveOriginal(decodedMessage, originalMessage, raw);
+                    Position position = (Position) decodedMessage;
+                    if(!position.getAttributes().isEmpty()){
+                        ctx.fireChannelRead(decodedMessage);
+                    }
                 }
             }
         } finally {

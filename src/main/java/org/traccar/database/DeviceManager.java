@@ -340,6 +340,17 @@ public class DeviceManager extends BaseObjectManager<Device> implements Identity
 
             getDataManager().updateLatestPosition(position);
 
+            switch (position.getInteger(position.KEY_TYPE)){
+                case 11:
+                    getDataManager().updateLatestPositionEleven(position);
+                    break;
+                case 0:
+                    getDataManager().updateLatestPositionZero(position);
+                    break;
+                default:
+                    break;
+            }
+
             Device device = getById(position.getDeviceId());
             if (device != null) {
                 device.setPositionId(position.getId());

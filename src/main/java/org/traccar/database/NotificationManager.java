@@ -102,6 +102,10 @@ public class NotificationManager extends ExtendedObjectManager<Notification> {
                             notificators.addAll(notification.getNotificatorsTypes());
                         }
                     }
+                    // MARX generando nuestra propias notificaciones geofence
+                    if(event.getType().equals(Event.TYPE_GEOFENCE_ENTER) || event.getType().equals(Event.TYPE_GEOFENCE_EXIT)){
+                        notificators.addAll(notification.getNotificatorsTypes());
+                    }
                 }
 
                 if (position != null && position.getAddress() == null

@@ -23,7 +23,8 @@ import org.traccar.BaseFrameDecoder;
 public class H02FrameDecoder extends BaseFrameDecoder {
 
     private static final int MESSAGE_SHORT = 32;
-    private static final int MESSAGE_LONG = 45;
+    // MARX 45 to 47
+    private static final int MESSAGE_LONG = 47;
 
     private int messageLength;
 

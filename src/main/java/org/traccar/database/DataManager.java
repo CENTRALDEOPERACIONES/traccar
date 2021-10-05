@@ -29,24 +29,7 @@ import org.slf4j.LoggerFactory;
 import org.traccar.Context;
 import org.traccar.config.Config;
 import org.traccar.config.Keys;
-import org.traccar.model.Attribute;
-import org.traccar.model.BaseModel;
-import org.traccar.model.Calendar;
-import org.traccar.model.Command;
-import org.traccar.model.Device;
-import org.traccar.model.Driver;
-import org.traccar.model.Event;
-import org.traccar.model.Geofence;
-import org.traccar.model.Group;
-import org.traccar.model.Maintenance;
-import org.traccar.model.ManagedUser;
-import org.traccar.model.Notification;
-import org.traccar.model.Order;
-import org.traccar.model.Permission;
-import org.traccar.model.Position;
-import org.traccar.model.Server;
-import org.traccar.model.Statistics;
-import org.traccar.model.User;
+import org.traccar.model.*;
 
 import javax.sql.DataSource;
 import java.beans.Introspector;
@@ -340,6 +323,20 @@ public class DataManager {
                 .executeUpdate();
     }
 
+    public void updateLatestPositionEleven(Position position) throws SQLException {
+        QueryBuilder.create(dataSource, getQuery("database.updateLatestPositionEleven"))
+                .setDate("now", new Date())
+                .setObject(position)
+                .executeUpdate();
+    }
+
+    public void updateLatestPositionZero(Position position) throws SQLException {
+        QueryBuilder.create(dataSource, getQuery("database.updateLatestPositionZero"))
+                .setDate("now", new Date())
+                .setObject(position)
+                .executeUpdate();
+    }
+
     public Collection<Position> getLatestPositions() throws SQLException {
         return QueryBuilder.create(dataSource, getQuery("database.selectLatestPositions"))
                 .executeQuery(Position.class);
@@ -348,6 +345,13 @@ public class DataManager {
     public Server getServer() throws SQLException {
         return QueryBuilder.create(dataSource, getQuery(ACTION_SELECT_ALL, Server.class))
                 .executeQuerySingle(Server.class);
+    }
+
+    public Collection<CanVariable> getCanVariables(String plSignature, String varId) throws SQLException {
+        return QueryBuilder.create(dataSource, getQuery("database.selectCanVariables"))
+                .setString("plsignature", plSignature)
+                .setString("varid", varId)
+                .executeQuery(CanVariable.class);
     }
 
     public Collection<Event> getEvents(long deviceId, Date from, Date to) throws SQLException {

@@ -443,7 +443,7 @@ public final class QueryBuilder {
 
         if (query != null) {
             try {
-                statement.execute();
+                statement.executeUpdate(); // MARX POSIBLE ERROR
                 if (returnGeneratedKeys) {
                     ResultSet resultSet = statement.getGeneratedKeys();
                     if (resultSet.next()) {

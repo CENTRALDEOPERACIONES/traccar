@@ -143,6 +143,118 @@ public class Position extends Message {
     public static final String ALARM_TAMPERING = "tampering";
     public static final String ALARM_REMOVING = "removing";
 
+    public static final String ALARM_EMERGENCY = "emergency";
+    public static final String ALARM_ENGINE_ACTIVATED = "engineActivated";
+    public static final String ALARM_ROBBERY = "robbery";
+    public static final String ALARM_KEYPAD_LOCKED = "keypadLoked";
+    public static final String ALARM_CRASH = "crash";
+    public static final String ALARM_FUNCTION_BUTTON_PRESSED = "functionButtonPressed";
+    public static final String ALARM_VOICE_CALL = "voiceCall";
+    public static final String ALARM_COASTING_DETECTION = "coastingDetection";
+    public static final String ALARM_VIOLATION_1_FREQUENCY = "violation1Frequency";
+    public static final String ALARM_VIOLATION_2_FREQUENCY = "violation2Frequency";
+    public static final String ALARM_SPEED_IGNITION_OFF = "speedIgnitionOff";
+    public static final String ALARM_REPLY_COMMAND = "replyCommand";
+    public static final String ALARM_IP_CHANGED = "ipChanged";
+    public static final String ALARM_GPS_NAVIGATION_START = "gpsNavigationStart";
+    public static final String ALARM_OVER_SPEED_START = "overSpeedStart";
+    public static final String ALARM_IDLE_SPEED_START = "idleSpeedStart";
+    public static final String ALARM_GPS_FACTORY_RESET = "gpsFactoryReset";
+    public static final String ALARM_GPS_NAVIGATION_END = "gpsNavigationEnd";
+    public static final String ALARM_OVER_SPEED_END = "overSpeedEnd";
+    public static final String ALARM_IDLE_SPEED_END = "idleSpeedEnd";
+    public static final String ALARM_TIMED_EVENT = "timedEvent";
+    public static final String ALARM_DIVER_AUTHENTICATION_UPDATE = "driverAuthenticationUpdate";
+    public static final String ALARM_DRIVING_WITHOUT_AUTHENTICATION = "drivingWithoutAuthentication";
+    public static final String ALARM_DOOR_CLOSE = "doorClose";
+    public static final String ALARM_SHOCK_UNLOCK2_INACTIVE = "shockUnlock2Inactive";
+    public static final String ALARM_CFE_INPUT6_INACTIVE = "cfeInput6Inactive";
+    public static final String ALARM_VOLUME_SENSOR_INACTIVE_EVENT = "volumeSensorInactiveEvent";
+    public static final String ALARM_DRIVING_STOP = "drivingStop";
+    public static final String ALARM_DISTRESS_BUTTON_INACTIVE = "distressButtonInactive";
+    public static final String ALARM_UNLOCK_INPUT_INACTIVE = "unlockInputInactive";
+    public static final String ALARM_CFE_INPUT1_INACTIVE = "cfeInput1Inactive";
+    public static final String ALARM_LOCK_INPUT_INACTIVE = "lockInputInactive";
+    public static final String ALARM_CFE_INPUT2_INACTIVE = "cfeInput2Inactive";
+    public static final String ALARM_CFE_INPUT3_INACTIVE = "cfeInput3Inactive";
+    public static final String ALARM_CFE_INPUT4_INACTIVE = "cfeInput4Inactive";
+    public static final String ALARM_CFE_INPUT5_INACTIVE = "cfeInput5Inactive";
+    public static final String ALARM_IGNITION_INPUT_INACTIVE = "ignitionInputInactive";
+    public static final String ALARM_DOOR_OPEN = "doorOpen";
+    public static final String ALARM_SHOCK_UNLOCK2_ACTIVE = "shockUnlock2Active";
+    public static final String ALARM_CFE_INPUT6_ACTIVE = "cfeInput6Active";
+    public static final String ALARM_VOLUME_SENSOR_ACTIVE = "volumeSensorActive";
+    public static final String ALARM_DRIVING_START = "drivingStart";
+    public static final String ALARM_UNLOCK_INPUT_ACTIVE = "unlockInputActive";
+    public static final String ALARM_CFE_INPUT1_ACTIVE = "cfeInput1Active";
+    public static final String ALARM_LOCK_INPUT_ACTIVE = "lockInputActive";
+    public static final String ALARM_CFE_INPUT2_ACTIVE = "cfeInput2Active";
+    public static final String ALARM_CFE_INPUT3_ACTIVE = "cfeInput3Active";
+    public static final String ALARM_CFE_INPUT4_ACTIVE = "cfeInput4Active";
+    public static final String ALARM_CFE_INPUT5_ACTIVE = "cfeInput5Active";
+    public static final String ALARM_IGNITION_INPUT_ACTIVE = "ignitionInputActive";
+    public static final String ALARM_BACKUP_BATTERY_DISCONNECTED = "backupBatteryDisconnected";
+    public static final String ALARM_BACKUP_BATTERY_LOW_LEVEL = "backupBatteryLowLevel";
+    public static final String ALARM_HALT_MOVEMENT_END = "haltMovementEnd";
+    public static final String ALARM_GO_MOVEMENT_START = "goMovementStart";
+    public static final String ALARM_MAIN_POWER_CONNECTED = "mainPowerConnected";
+    public static final String ALARM_MAIN_POWER_HIGH_LEVEL = "mainPowerHighLevel";
+    public static final String ALARM_BACKUP_BATTERY_CONNECTED = "backupBatteryConnected";
+    public static final String ALARM_BACKUP_BATTERY_HIGH_LEVEL = "backupBatteryHighLevel";
+    public static final String ALARM_MESSAGE_FROM_KEYBOARD = "messageFromKeyboard";
+    public static final String ALARM_SATELLITE_COMMUNICATION = "satelliteCommunication";
+    public static final String ALARM_HARSH_BRAKING_SENSOR = "harshBrakingSensor";
+    public static final String ALARM_SUDDEN_COURSE_CHANGE_SENSOR = "suddenCourseChangeSensor";
+    public static final String ALARM_HARSH_ACCELERATION_SENSOR = "harshAccelerationSensor";
+    public static final String ALARM_MAIN_POWER_LOW = "mainPowerLow";
+    public static final String ALARM_TAMPER_ACTIVE = "tamperActive";
+    public static final String ALARM_TAMPER_INACTIVE = "tamperInactive";
+    public static final String ALARM_CFE_VENT = "cfeVent";
+    public static final String ALARM_UNLOCK_INPUT = "unlockInput";
+    public static final String ALARM_ORIENTATION_CHANGE = "orientationChange";
+    public static final String ALARM_CAN_GPS_SPEED_CALIBRATION = "canGpsSpeedCalibration";
+    public static final String ALARM_NO_MODEM_ZONE_ENTRY = "noModemZoneEntry";
+    public static final String ALARM_GEO_HOTSPOT_VIOLATION = "geoHotspotViolation";
+    public static final String ALARM_FREQUENCY_MEASUREMENT_THRESHOLD_VIOLATION = "frequencyMeasurementThresholdViolation";
+    public static final String ALARM_ANALOG_MEASUREMENT_THRESHOLD_VIOLATION = "analogMeasurementThresholdViolation";
+    public static final String ALARM_TRAILER_CONNECTION_STATUS = "trailerConnectionStatus";
+    public static final String ALARM_AHR = "ahr";
+    public static final String ALARM_PSP = "psp";
+    public static final String ALARM_WAKE_UP_EVENT = "wakeUpEvent";
+    public static final String ALARM_PRE_HIBERNATION_EVENT = "preHibernationEvent";
+    public static final String ALARM_VECTOR_CHANGE_CURVE_SMOOTHING = "vectorChangeCurveSmoothing";
+    public static final String ALARM_GARMIN_CONNECTION_STATUS = "garminConnectionStatus";
+    public static final String ALARM_RADIO_OFF_MODE = "radioOffMode";
+    public static final String ALARM_HEADER_ERROR = "headerError";
+    public static final String ALARM_GEO_FENCE_OVER_SPEED_START = "geoFenceOverSpeedStart";
+    public static final String ALARM_GEO_FENCE_OVER_SPEED_END = "geoFenceOverSpeedEnd";
+    public static final String ALARM_POINTERCEPT_BEACON_START_STOP = "pointerceptBeaconStartStop";
+    public static final String ALARM_POINTERCEPT_CPIN_ERROR = "pointerceptCpinError";
+    public static final String ALARM_OTA = "ota";
+    public static final String ALARM_POINTERCEPT_PERIODIC_BEACON_TRANSMISSION = "pointerceptPeriodicBeaconTransmission";
+    public static final String ALARM_FINISH_MODE = "finishMode";
+    public static final String ALARM_COM_LOCATION_GLANCING = "comLocationGlancing";
+    public static final String ALARM_VIOLATION_KEEP_IN_FENCE = "violationKeepInFence";
+    public static final String ALARM_VIOLATION_KEEP_OUT_FENCE = "violationKeepOutFence";
+    public static final String ALARM_VIOLATION_WAYPOINT = "violationWaypoint";
+
+    public static final String PREFIX_FUEL_LEVEL = "fuelLevel";
+
+    //H02 Protocol MARX
+    public static final String KEY_USR_ALARM = "usrAlarm";
+    public static final String KEY_KEEP = "keep";
+    public static final String KEY_GSM = "gsm";
+    public static final String KEY_MILEAGE = "mileage";
+    public static final String KEY_COUNTRY = "country";
+    public static final String KEY_HEIGHT = "height";
+    public static final String KEY_RECORD = "record";
+    //endregion
+
+    //Error plsignature MARX
+    public static final String KEY_UNKNOWN = "unknown";
+    public static final String KEY_ERROR = "error";
+    //endregion
+
     public Position() {
     }
 
@@ -295,6 +407,16 @@ public class Position extends Message {
 
     public void setNetwork(Network network) {
         this.network = network;
+    }
+
+    private String originalMessage;
+
+    public String getOriginalMessage() {
+        return originalMessage;
+    }
+
+    public void setOriginalMessage(String originalMessage) {
+        this.originalMessage = originalMessage;
     }
 
     @Override
