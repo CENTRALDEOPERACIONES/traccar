@@ -59,7 +59,6 @@ public class WialonProtocolDecoderTest extends ProtocolTest {
 
         verifyPosition(decoder, text(
                 "#D#021214;065947;2237.7552;N;11404.8851;E;0.000;;170.9;5;1.74;NA;NA;;NA;NA"));
-
     }
 
 }

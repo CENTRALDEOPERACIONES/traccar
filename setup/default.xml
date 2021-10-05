@@ -5,7 +5,6 @@
 <properties>
 
     <!--
-
     DO NOT MODIFY THIS FILE. Use traccar.xml instead.
 
     -->
@@ -33,6 +32,7 @@
     <entry key='database.maxPoolSize'>1000</entry>
 
     <entry key='logger.enable'>true</entry>
+
     <entry key='logger.level'>info</entry>
     <entry key='logger.file'>./logs/tracker-server.log</entry>
     <entry key='logger.rotate'>true</entry>
@@ -55,12 +55,6 @@
     <entry key='processing.copyAttributes'>power,ignition,battery,status,motion</entry>
 
     <entry key='commands.queueing'>true</entry>
-
-    <entry key='database.ignoreUnknown'>false</entry>
-    <entry key='database.registerUnknown'>true</entry>
-    <entry key='database.generateQueries'>true</entry>
-    <entry key='database.changelog'>./schema/changelog-master.xml</entry>
-    <entry key='database.saveOriginal'>true</entry>
  
     <entry key='database.loginUser'>
         SELECT * FROM tc_users
