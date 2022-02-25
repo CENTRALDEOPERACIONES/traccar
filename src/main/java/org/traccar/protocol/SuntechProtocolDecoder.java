@@ -168,29 +168,185 @@ public class SuntechProtocolDecoder extends BaseProtocolDecoder {
     }
 
     private String decodeAlert(int value) {
+//        switch (value) {
+//            case 1:
+//                return Position.ALARM_OVERSPEED;
+//            case 5:
+//                return Position.ALARM_GEOFENCE_EXIT;
+//            case 6:
+//                return Position.ALARM_GEOFENCE_ENTER;
+//            case 14:
+//                return Position.ALARM_LOW_BATTERY;
+//            case 15:
+//                return Position.ALARM_SHOCK;
+//            case 16:
+//                return Position.ALARM_ACCIDENT;
+//            case 40:
+//                return Position.ALARM_POWER_RESTORED;
+//            case 41:
+//                return Position.ALARM_POWER_CUT;
+//            case 46:
+//                return Position.ALARM_ACCELERATION;
+//            case 47:
+//                return Position.ALARM_BRAKING;
+//            case 50:
+//                return Position.ALARM_JAMMING;
+//            default:
+//                return null;
+//        }
         switch (value) {
             case 1:
                 return Position.ALARM_OVERSPEED;
+            case 2:
+                return Position.ALARM_UNDER_SPEED;
+            case 3:
+                return Position.ALARM_GPS_DISCONNECTED;
+            case 4:
+                return Position.ALARM_GPS_CONNECTED;
             case 5:
                 return Position.ALARM_GEOFENCE_EXIT;
             case 6:
                 return Position.ALARM_GEOFENCE_ENTER;
+            case 8:
+                return Position.ALARM_GPS_SHORTED;
+            case 9:
+                return Position.ALARM_ENTER_SLEEP;
+            case 10:
+                return Position.ALARM_EXIT_SLEEP;
+            case 11:
+                return Position.ALARM_INPUT_HIGH;
+            case 12:
+                return Position.ALARM_INPUT_LOW;
+            case 13:
+                return Position.ALARM_BATTERY_ERROR;
             case 14:
                 return Position.ALARM_LOW_BATTERY;
             case 15:
                 return Position.ALARM_SHOCK;
             case 16:
                 return Position.ALARM_ACCIDENT;
+            case 17:
+                return Position.ALARM_MOTION_DETECTED;
+            case 33:
+                return Position.ALARM_IGNITION_ON;
+            case 34:
+                return Position.ALARM_IGNITION_OFF;
             case 40:
-                return Position.ALARM_POWER_RESTORED;
+                return Position.ALARM_POWER_ON;
             case 41:
-                return Position.ALARM_POWER_CUT;
+                return Position.ALARM_POWER_OFF;
+            case 44:
+                return Position.ALARM_BACKUP_BATTERY_CONNECTED;
+            case 45:
+                return Position.ALARM_BACKUP_BATTERY_DISCONNECTED;
+            case 61:
+                return Position.ALARM_ENGINE_SPEED;
+            case 62:
+                return Position.ALARM_ENGINE_VIOLATION;
+            case 63:
+                return Position.ALARM_ENGINE_TEMPERATURE_VIOLATION;
+            case 64:
+                return Position.ALARM_ENGINE_OIL_PRESSURE_VIOLATION;
+            case 65:
+                return Position.ALARM_ENGINE_RPM_VIOLATION;
+            case 66:
+                return Position.ALARM_ENGINE_ERROR_DTC;
+            case 85:
+                return Position.ALARM_ST25T_CONNECTED;
+            case 86:
+                return Position.ALARM_ST25T_DISCONNECTED;
+            case 87:
+                return Position.ALARM_FULL_NET_SCAN_FAIL;
+            case 88:
+                return Position.ALARM_FUEL_MAX_LEVEL_EXCESS;
+            case 89:
+                return Position.ALARM_FUEL_CONNECT;
+            case 90:
+                return Position.ALARM_FUEL_DISCONNECT;
+            case 91:
+                return Position.ALARM_FUEL_LEVEL_LOWER;
+            case 92:
+                return Position.ALARM_FUEL_LEVEL_UPPER;
+            case 70:
+                return Position.ALARM_ST20U_CONNECT;
+            case 71:
+                return Position.ALARM_ST20U_DISCONNECT;
+            case 74:
+                return Position.ALARM_EXIT_POLYGEO_FENCE;
+            case 79:
+                return Position.ALARM_ENTER_POLYGEO_FENCE;
+            case 100:
+                return Position.ALARM_OVER_SPEED_POLYGEO_FENCE;
+            case 101:
+                return Position.ALARM_UNDER_SPEED_POLYGEO_FENCE;
             case 46:
                 return Position.ALARM_ACCELERATION;
             case 47:
                 return Position.ALARM_BRAKING;
+            case 48:
+                return Position.ALARM_SHARP_TURN_LEFT;
+            case 49:
+                return Position.ALARM_SHARP_TURN_RIGHT;
+//            case 86:
+//                return Position.ALARM_DPA_CALIBRATED;
             case 50:
                 return Position.ALARM_JAMMING;
+            case 59:
+                return Position.ALARM_BUTTON_READ;
+            case 29:
+                return Position.ALARM_ENTER_DRIVER_MODE;
+            case 31:
+                return Position.ALARM_ENTER_PARK_MODE;
+            case 68:
+                return Position.ALARM_ENTER_IDLE_MODE;
+            case 36:
+                return Position.ALARM_ENTER_SPEED_MODE;
+            case 35:
+                return Position.ALARM_EXCESS_IDLE;
+            case 58:
+                return Position.ALARM_ENTER_TOW;
+            case 99:
+                return Position.ALARM_POWER_UP;
+            case 75:
+                return Position.ALARM_TEMP_HIGH;
+            case 76:
+                return Position.ALARM_TEMP_LOW;
+            case 77:
+                return Position.ALARM_TEMP_RETURN;
+            case 93:
+                return Position.ALARM_RFID_READ;
+            case 43:
+                return Position.ALARM_BACKUP_BATTERY_LOW_LEVEL;
+            case 72:
+                return Position.ALARM_SIM_CARD_REMOVED;
+            case 97:
+                return Position.ALARM_GPS_FIX;
+            case 67:
+                return Position.ALARM_VOICE_CALL;
+            case 69:
+                return Position.ALARM_RS232_ALERT;
+            case 56:
+                return Position.ALARM_MAGNET_DETECTED;
+            case 57:
+                return Position.ALARM_MAGNET_RELEASE;
+            case 55:
+                return Position.ALARM_POWER_KEY_PRESSED;
+            case 42:
+                return Position.ALARM_PANIC_BUTTON;
+            case 73:
+                return Position.ALARM_ANTI_THEFT;
+            case 82:
+                return Position.ALARM_OBD_PARAMETER_SETTING;
+            case 103:
+                return Position.ALARM_MDSM7_EVENT;
+            case 104:
+                return Position.ALARM_MDAS9_EVENT;
+            case 129:
+                return Position.ALARM_OVER_SPEED_CIRCULAR_GEO_FENCE;
+            case 130:
+                return Position.ALARM_UNDER_SPEED_CIRCULAR_GEO_FENCE;
+            case 131:
+                return Position.ALARM_TRAILER_EVENT;
             default:
                 return null;
         }
@@ -558,7 +714,10 @@ public class SuntechProtocolDecoder extends BaseProtocolDecoder {
 
             if (type.equals("ALT")) {
                 if (BitUtil.check(mask, 19)) {
-                    position.set("alertId", values[index++]);
+                    // position.set("alertId", values[index++]);
+                    int alertId = Integer.parseInt(values[index++]);
+                    position.set(position.KEY_ALERT_ID, alertId);
+                    position.set(Position.KEY_ALARM, decodeAlert(alertId));
                 }
                 if (BitUtil.check(mask, 20)) {
                     position.set("alertModifier", values[index++]);

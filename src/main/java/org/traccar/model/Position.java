@@ -95,6 +95,50 @@ public class Position extends Message {
 
     public static final String KEY_DRIVER_UNIQUE_ID = "driverUniqueId";
 
+    //region new keys MARX
+    public static final String KEY_IN_STATE = "inState";
+    public static final String KEY_OUT_STATE = "outState";
+    public static final String KEY_MODE = "mode";
+    public static final String KEY_STT_RPT_TYPE = "sttRptType";
+    public static final String KEY_MSG_NUM = "msgNum";
+    public static final String KEY_BCK_VOLT = "bckVolt";
+    public static final String KEY_ADC = "adc";
+    public static final String KEY_DIST = "dist";
+    public static final String KEY_PWR_VOLT = "pwrVolt";
+    public static final String KEY_TOTAL_USED_FUEL = "totalUsedFuel";
+    public static final String KEY_VEH_SPD = "vehSpd";
+    public static final String KEY_IDLE_FUEL = "idleFuel";
+    public static final String KEY_ENGINE_TEMPERATURE = "engineTemperature";
+    public static final String KEY_OIL_PRESSURE = "oilPressure";
+    public static final String KEY_ENGINE_RPM = "engineRpm";
+    public static final String KEY_TOTAL_ENG_HR = "totalEngHr";
+    public static final String KEY_VEH_PROT = "vehProt";
+    public static final String KEY_DTC = "dtc";
+    public static final String KEY_ENGINE_IDLE_TIME = "engineIdleTime";
+    public static final String KEY_FUEL_ECONOMY = "fuelEconomy";
+    public static final String KEY_TRIP_FUEL = "tripFuel";
+    public static final String KEY_ALERT_ID = "alertId";
+    public static final String KEY_ALERT_MOD = "alertMod";
+    public static final String KEY_ALERT_DATA = "alertData";
+    public static final String KEY_LEN = "len";
+    public static final String KEY_DATA = "data";
+    public static final String KEY_LAT_TRV_ST = "latTrvSt";
+    public static final String KEY_LON_TRV_ST = "lonTrvSt";
+    public static final String KEY_LAT_TRV_FI = "latTrvFi";
+    public static final String KEY_LON_TRV_FI = "lonTrvFi";
+    public static final String KEY_DRIVER_ID = "driverId";
+    public static final String KEY_TRV_DIST = "trvDist";
+    public static final String KEY_TRV_H_METER = "trvHMeter";
+    public static final String KEY_IDLE_TIME = "idleTime";
+    public static final String KEY_IDLE_EVENTS = "idleEvents";
+    public static final String KEY_SPD_TIME = "spdTime";
+    public static final String KEY_SPD_EVENTS = "spdEvents";
+    public static final String KEY_MAX_SPD = "maxSpd";
+    public static final String KEY_AVG_SPD = "avgSpd";
+    public static final String KEY_GPS_ODOM = "gpsOdom";
+    public static final String KEY_SPEED_HISTOGRAM = "speedHistogram";
+    //endregion
+
     // Start with 1 not 0
     public static final String PREFIX_TEMP = "temp";
     public static final String PREFIX_ADC = "adc";
@@ -253,6 +297,70 @@ public class Position extends Message {
     //Error plsignature MARX
     public static final String KEY_UNKNOWN = "unknown";
     public static final String KEY_ERROR = "error";
+    //endregion
+
+    //region Alarms from suntech MARX
+    public static final String ALARM_UNDER_SPEED = "underSpeed";
+    public static final String ALARM_GPS_DISCONNECTED = "gpsDisconnected";
+    public static final String ALARM_GPS_CONNECTED = "gpsConnected";
+    public static final String ALARM_GPS_SHORTED = "gpsShorted";
+    public static final String ALARM_ENTER_SLEEP = "enterSleep";
+    public static final String ALARM_EXIT_SLEEP = "exitSleep";
+    public static final String ALARM_INPUT_HIGH = "inputHigh";
+    public static final String ALARM_INPUT_LOW = "inputLow";
+    public static final String ALARM_BATTERY_ERROR = "batteryError";
+    public static final String ALARM_MOTION_DETECTED = "motionDetected";
+    public static final String ALARM_IGNITION_ON = "ignitionOn";
+    public static final String ALARM_IGNITION_OFF = "ignitionOff";
+    public static final String ALARM_ENGINE_SPEED = "engineSpeed";
+    public static final String ALARM_ENGINE_VIOLATION = "engineViolation";
+    public static final String ALARM_ENGINE_TEMPERATURE_VIOLATION = "engineTemperatureViolation";
+    public static final String ALARM_ENGINE_OIL_PRESSURE_VIOLATION = "engineOilPressureViolation";
+    public static final String ALARM_ENGINE_RPM_VIOLATION = "engineRpmViolation";
+    public static final String ALARM_ENGINE_ERROR_DTC = "engineErrorDtc";
+    public static final String ALARM_ST25T_CONNECTED = "st25tConnected";
+    public static final String ALARM_ST25T_DISCONNECTED = "st25tDisconnected";
+    public static final String ALARM_FULL_NET_SCAN_FAIL = "fullNetScanFail";
+    public static final String ALARM_FUEL_MAX_LEVEL_EXCESS = "fuelMaxLevelExcess";
+    public static final String ALARM_FUEL_CONNECT = "fuelConnect";
+    public static final String ALARM_FUEL_DISCONNECT = "fuelDisconnect";
+    public static final String ALARM_FUEL_LEVEL_LOWER = "fuelLevelLower";
+    public static final String ALARM_FUEL_LEVEL_UPPER = "fuelLevelUpper";
+    public static final String ALARM_ST20U_CONNECT = "st20uConnect";
+    public static final String ALARM_ST20U_DISCONNECT = "st20uDisconnect";
+    public static final String ALARM_EXIT_POLYGEO_FENCE = "exitPolygeoFence";
+    public static final String ALARM_ENTER_POLYGEO_FENCE = "enterPolygeoFence";
+    public static final String ALARM_OVER_SPEED_POLYGEO_FENCE = "overSpeedPolygeoFence";
+    public static final String ALARM_UNDER_SPEED_POLYGEO_FENCE = "underSpeedPolygeoFence";
+    public static final String ALARM_SHARP_TURN_LEFT = "sharpTurnLeft";
+    public static final String ALARM_SHARP_TURN_RIGHT = "sharpTurnRight";
+    public static final String ALARM_DPA_CALIBRATED = "dpaCalibrated";
+    public static final String ALARM_BUTTON_READ = "buttonRead";
+    public static final String ALARM_ENTER_DRIVER_MODE = "enterDriverMode";
+    public static final String ALARM_ENTER_PARK_MODE = "enterParkMode";
+    public static final String ALARM_ENTER_IDLE_MODE = "enterIdleMode";
+    public static final String ALARM_ENTER_SPEED_MODE = "enterSpeedMode";
+    public static final String ALARM_EXCESS_IDLE = "excessIdle";
+    public static final String ALARM_ENTER_TOW = "enterTow";
+    public static final String ALARM_POWER_UP = "powerUp";
+    public static final String ALARM_TEMP_HIGH = "tempHigh";
+    public static final String ALARM_TEMP_LOW = "tempLow";
+    public static final String ALARM_TEMP_RETURN = "tempReturn";
+    public static final String ALARM_RFID_READ = "rfidRead";
+    public static final String ALARM_SIM_CARD_REMOVED = "simCardRemoved";
+    public static final String ALARM_GPS_FIX = "gpsFix";
+    public static final String ALARM_RS232_ALERT = "rs232Alert";
+    public static final String ALARM_MAGNET_DETECTED = "magnetDetected";
+    public static final String ALARM_MAGNET_RELEASE = "magnetRelease";
+    public static final String ALARM_POWER_KEY_PRESSED = "powerKeyPressed";
+    public static final String ALARM_PANIC_BUTTON = "panicButton";
+    public static final String ALARM_ANTI_THEFT = "antiTheft";
+    public static final String ALARM_OBD_PARAMETER_SETTING = "odbParameterSetting";
+    public static final String ALARM_MDSM7_EVENT = "mdsm7Event";
+    public static final String ALARM_MDAS9_EVENT = "mdas9Event";
+    public static final String ALARM_OVER_SPEED_CIRCULAR_GEO_FENCE = "overSpeedCircularGeoFence";
+    public static final String ALARM_UNDER_SPEED_CIRCULAR_GEO_FENCE = "underSpeedCircularGeoFence";
+    public static final String ALARM_TRAILER_EVENT = "trailerEvent";
     //endregion
 
     public Position() {
